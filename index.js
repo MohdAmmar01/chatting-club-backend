@@ -40,7 +40,11 @@ app.use('/api/user',userRoute)
 
 var users=[]
 
-const io=socketio(server)
+const io=socketio(server,{
+    cors: {
+        origin: "https://chatting-club-frontend.onrender.com",
+    }
+})
 
 const addusers=(userid,socketid)=>{
       if(userid===null){return}
