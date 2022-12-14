@@ -41,9 +41,7 @@ router.post('/register',async (req,res)=>{
       res.cookie("pas",token,{
           path:"/",
           expires: new Date(Date.now()+1000*18000),
-          httpOnly:true,
-          sameSite:"lax"
-  
+          httpOnly:true,  
       })
       res.status(200).json({'success':true,'message':user})}
 
@@ -68,7 +66,6 @@ router.post('/login',async (req,res)=>{
         path:"/",
         expires: new Date(Date.now()+1000*18000),
         httpOnly:true,
-        sameSite:"lax"
 
     })
     res.status(200).json({"success":true,"user": user,"token":token})
