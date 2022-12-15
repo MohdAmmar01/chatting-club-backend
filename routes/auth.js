@@ -42,7 +42,8 @@ router.post('/register',async (req,res)=>{
           path:"/",
           expires: new Date(Date.now()+1000*18000),
           httpOnly:true,
-          domain: 'https://chatting-club-frontend.onrender.com'
+          sameSite:"none",
+          secure:true
   
       })
       res.status(200).json({'success':true,'message':user})}
@@ -67,8 +68,9 @@ router.post('/login',async (req,res)=>{
     res.cookie("pas",token,{
         path:"/",
         expires: new Date(Date.now()+1000*18000),
-        domain: 'https://chatting-club-frontend.onrender.com',
         httpOnly:true,
+        sameSite:"none",
+        secure:true
 
     })
     res.status(200).json({"success":true,"user": user,"token":token})
